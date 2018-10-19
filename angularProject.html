@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ratings</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="angularProject.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="angularProject.css" type="text/css" />
+    <style>
+    </style>
+</head>
+
+<body>
+    <div class="page-header">
+        <h1>RATE EACH SCHOOL</h1>
+    </div>
+    <h3 id="ratingText">Select an appropriate star rating</h3>
+
+    <div class="container">
+        <div class="jumbotron">
+            <div class="row">
+                <div class="col-md-6">
+                    <img class="img-responsive" src="byulogo.jpg" id=Noah1></img>
+                    <div class="item">
+                        <div class="stars">
+                            <form action="">
+                                <input class="star star-5" id="star-5" type="radio" name="star" />
+                                <label class="star star-5" for="star-5"></label>
+                                <input class="star star-4" id="star-4" type="radio" name="star" />
+                                <label class="star star-4" for="star-4"></label>
+                                <input class="star star-3" id="star-3" type="radio" name="star" />
+                                <label class="star star-3" for="star-3"></label>
+                                <input class="star star-2" id="star-2" type="radio" name="star" />
+                                <label class="star star-2" for="star-2"></label>
+                                <input class="star star-1" id="star-1" type="radio" name="star" />
+                                <label class="star star-1" for="star-1"></label>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+
+                    <img class="img-responsive" src="uofulogo.jpg" id="Tyler1"></img>
+                    <div class="item">
+                        <div class="stars2">
+                            <form action="">
+                                <input class="star2 star-5" id="star2-5" type="radio" name="star" />
+                                <label class="star2 star-5" for="star2-5"></label>
+                                <input class="star2 star-4" id="star2-4" type="radio" name="star" />
+                                <label class="star2 star-4" for="star2-4"></label>
+                                <input class="star2 star-3" id="star2-3" type="radio" name="star" />
+                                <label class="star2 star-3" for="star2-3"></label>
+                                <input class="star2 star-2" id="star2-2" type="radio" name="star" />
+                                <label class="star2 star-2" for="star2-2"></label>
+                                <input class="star2 star-1" id="star2-1" type="radio" name="star" />
+                                <label class="star2 star-1" for="star2-1"></label>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div ng-app="Comments" ng-controller="mainCtrl">
+            <h3>{{test}}</h3>
+            <form ng-submit="addPost()"></form>
+                <input type="text" ng-model="formContent"></input>
+                <button type="submit">Post</button>
+            </form>
+            <div ng-repeat="post in posts | orderBy: '-likes'">
+                <h4>{{post.comment}} - Likes {{post.likes}}
+                    <span style="padding-left:10px" class="glyphicon glyphicon-thumbs-up blue" ng-click="incrementLikes(post)"></span>
+                    <span style="padding-left:5px" class="glyphicon glyphicon-thumbs-down red" ng-click="decrementLikes(post)"</span>
+                </h4>
+            </div>
+        </div>
+        
+    </div>
+
+    <script>
+        var output = "<h2> Comments: </h2> <br>";
+
+        function myFunction() {
+            var x = document.getElementById("myText").value;
+            output += "<li>" + x + "</li>" + "<br>";
+            document.getElementById("printO").innerHTML = output;
+        }
+    </script>
+</body>
+
+</html>
